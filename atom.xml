@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-18T04:19:48.328Z</updated>
+  <updated>2020-08-18T05:38:54.499Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iPa包优化</title>
+    <link href="http://yoursite.com/2020/08/18/%E5%8C%85%E5%A4%A7%E5%B0%8F/"/>
+    <id>http://yoursite.com/2020/08/18/%E5%8C%85%E5%A4%A7%E5%B0%8F/</id>
+    <published>2020-08-18T05:38:54.499Z</published>
+    <updated>2020-08-18T05:38:54.499Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="iPa包大小优化"><a href="#iPa包大小优化" class="headerlink" title="iPa包大小优化"></a>iPa包大小优化</h2><p>具体工作分解</p><ol><li>分析包大小具体组成成员，以及各自占有大小</li><li>分析打包时各个构成构建时对包大小的影响</li><li>优化各个构成成员</li><li>编译选项优化</li></ol><h3 id="iPa包构成"><a href="#iPa包构成" class="headerlink" title="iPa包构成"></a>iPa包构成</h3><p>我们解压iPa包后，可以看到iPa包主要由以下几类组成</p><pre><code>1.可执行文件2. .car、.nib、.bundle、Localizable.strings等资源文件3. _CodeSignature签名相关文件</code></pre><h3 id="主工程优化"><a href="#主工程优化" class="headerlink" title="主工程优化"></a>主工程优化</h3><ul><li>资源优化</li></ul><p>未优化前98.6M<br>优化图片后97.7M</p><p>压缩图片资源 3.5M</p><ul><li>代码分析，编译后可执行文件大小，选取占空间比较大（以100KB为参考）进行优化</li></ul><table><thead><tr><th align="center">名称</th><th align="center">优化前大小</th><th align="center">优化后大小</th><th align="center">优化空间</th></tr></thead><tbody><tr><td align="center">WowChatSDK</td><td align="center">4.56MB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">PLShortVideoKit</td><td align="center">1.08MB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">libWeChatSDK.a</td><td align="center">499.60KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">Bugly</td><td align="center">449.51KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">UMShare</td><td align="center">352.79KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBTradeContentView.o</td><td align="center">344.60KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">lto.o</td><td align="center">329.48KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">CHKLineChart.o</td><td align="center">296.16KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">UMAnalytics</td><td align="center">235.28KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">UMCommon</td><td align="center">235.09KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">MarketTableViewCell.o</td><td align="center">218.66KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">RemoteService.o</td><td align="center">207.99KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">libMuseProcessor.a</td><td align="center">194.97KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBVideoAuthViewController.o</td><td align="center">170.28KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBMarketViewController.o</td><td align="center">166.35KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">SecurityEnvSDK</td><td align="center">148.59KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBEntrustDetailViewController.o</td><td align="center">145.22KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBTradeExchangeViewController.o</td><td align="center">143.72KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBFlutterShareVC.o</td><td align="center">132.75KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBHandicapMainView.o</td><td align="center">130.31KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">CHDepthChartView.o    129.68KB</td><td align="center"></td><td align="center"></td><td align="center"></td></tr><tr><td align="center">CHChartModel.o</td><td align="center">125.72KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBKlineTableViewCell.o</td><td align="center">125.32KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">VerifyCode</td><td align="center">124.10KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">CHSlideHeaderView.o</td><td align="center">117.97KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">Constants.o</td><td align="center">117.87KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBFullScreenKlineViewController.o</td><td align="center">116.52KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBEntrustExpandCell.o</td><td align="center">115.90KB</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">ZBKlineViewController.o</td><td align="center">104.66KB</td><td align="center"></td><td align="center"></td></tr></tbody></table><p>没有尽数列举出来，总共19.22MB。代码整理这一块需要一起参与，各自负责整理各自部分。</p><h3 id="WowChatSDK对包大小影响及优化"><a href="#WowChatSDK对包大小影响及优化" class="headerlink" title="WowChatSDK对包大小影响及优化"></a>WowChatSDK对包大小影响及优化</h3><table><thead><tr><th align="center">有无WowChatSDK</th><th align="center">SDK版本</th><th align="center">包大小</th><th align="center">优化项</th></tr></thead><tbody><tr><td align="center">无</td><td align="center">无</td><td align="center">33KB</td><td align="center">无</td></tr><tr><td align="center">有</td><td align="center">1.4.2</td><td align="center">9.7M</td><td align="center">无</td></tr><tr><td align="center">有</td><td align="center">1.4.4</td><td align="center">9.3M</td><td align="center">SDK图片压缩</td></tr><tr><td align="center">有</td><td align="center">1.4.5</td><td align="center">8.5M</td><td align="center">删除部分无用代码</td></tr></tbody></table><p>WowChatSDK对包的影响大概是8.5M</p><p>图片和无用类减小了1.2M</p><h3 id="Flutter混编对包的影响及优化"><a href="#Flutter混编对包的影响及优化" class="headerlink" title="Flutter混编对包的影响及优化"></a>Flutter混编对包的影响及优化</h3><p>Flutter的framework大概占有 3.4M</p><p>Flutter代码资源打包占18M</p><p>压缩图片资源 9.1MB</p><p>Flutter（包含聊天SDK）优化过程如下</p><table><thead><tr><th align="center">影响包大小</th><th align="center">是否优化</th><th align="center">优化项目</th></tr></thead><tbody><tr><td align="center">27M</td><td align="center">否</td><td align="center">无</td></tr><tr><td align="center">18.1M</td><td align="center">是</td><td align="center">图片压缩</td></tr></tbody></table><p>图片减小包大小9M左右</p><h3 id="编译选项优化"><a href="#编译选项优化" class="headerlink" title="编译选项优化"></a>编译选项优化</h3><ul><li>编译选项：LTO，即Link Time Optimization。</li></ul><p>苹果在2016年的WWDC What’s new in LLVM中详细介绍了这一功能。LTO能带来的优化有：</p><pre><code>1. 将一些函数內联化2. 去除了一些无用代码3. 对程序有全局的优化作用</code></pre><ul><li>Build Settings-&gt;Optimization</li></ul><p>Level有几个编译优化选项，release版应该选择Fastest, Smalllest，这个选项会开启那些不增加代码大小的全部优化，并让可执行文件尽可能小，当然这些编译项早期是在工程生成时候xcode默认给工程配置好了，如果一旦xcode做了改变我们要知道这些东西。</p><ul><li>Strip Linked Product / Deployment Postprocessing / Symbols</li></ul><p>Hidden by Default在release版本应该设为yes，可以去除不必要的调试符号。Symbols Hidden by</p><p>Default会把所有符号都定义成”private extern”。这些选项目前都是XCode里release的默认选项，但旧版XCode生成的项目可能不是，可以检查一下</p><h5 id="优化工具"><a href="#优化工具" class="headerlink" title="优化工具"></a>优化工具</h5><p>检测工具（项目中未使用的图片）：LSUnusedResources (<a href="https://github.com/tinymind/LSUnusedResources)%EF%BC%89">https://github.com/tinymind/LSUnusedResources)）</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;iPa包大小优化&quot;&gt;&lt;a href=&quot;#iPa包大小优化&quot; class=&quot;headerlink&quot; title=&quot;iPa包大小优化&quot;&gt;&lt;/a&gt;iPa包大小优化&lt;/h2&gt;&lt;p&gt;具体工作分解&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;分析包大小具体组成成员，以及各自占有大小&lt;/li&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>深入浅出OC响应者链</title>
@@ -29,26 +52,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;深入浅出OC响应者链&quot;&gt;&lt;a href=&quot;#深入浅出OC响应者链&quot; class=&quot;headerlink&quot; title=&quot;深入浅出OC响应者链&quot;&gt;&lt;/a&gt;深入浅出OC响应者链&lt;/h2&gt;&lt;p&gt;所谓响应者链就是由多个响应者组合起来的链条。它表示了每个响应者之间的联系，并</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2020/08/17/hello-world2/"/>
-    <id>http://yoursite.com/2020/08/17/hello-world2/</id>
-    <published>2020-08-17T08:41:26.000Z</published>
-    <updated>2020-08-17T08:41:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
