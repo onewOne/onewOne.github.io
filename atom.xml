@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-18T06:30:48.904Z</updated>
+  <updated>2020-08-18T06:32:57.600Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,24 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Flutter</title>
-    <link href="http://yoursite.com/2020/08/18/Flutter-1/"/>
-    <id>http://yoursite.com/2020/08/18/Flutter-1/</id>
-    <published>2020-08-18T06:30:48.000Z</published>
-    <updated>2020-08-18T06:30:48.904Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Flutter</title>
+    <title>Flutter栈还原</title>
     <link href="http://yoursite.com/2020/08/18/Flutter/"/>
     <id>http://yoursite.com/2020/08/18/Flutter/</id>
     <published>2020-08-18T06:30:03.000Z</published>
-    <updated>2020-08-18T06:30:39.999Z</updated>
+    <updated>2020-08-18T06:32:57.600Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Flutter栈还原"><a href="#Flutter栈还原" class="headerlink" title="Flutter栈还原"></a>Flutter栈还原</h2><h4 id="首先下载对应Flutter符号表"><a href="#首先下载对应Flutter符号表" class="headerlink" title="首先下载对应Flutter符号表"></a>首先下载对应Flutter符号表</h4><ul><li>查看电脑Flutter对应revision符号表名</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Flutter --version</span><br><span class="line"></span><br><span class="line">Flutter 1.12.13+hotfix.7 • channel unknown • unknown source</span><br><span class="line">Framework • revision 9f5ff2306b (5 months ago) • 2020-01-26 22:38:26 -0800</span><br><span class="line">Engine • revision a67792536c</span><br><span class="line">Tools • Dart 2.7.0</span><br></pre></td></tr></table></figure><ul><li>在以下地址所说对应a67792536c</li></ul><p><a href="https://console.cloud.google.com/storage/browser/flutter_infra/flutter/">https://console.cloud.google.com/storage/browser/flutter_infra/flutter/</a></p><ul><li>使用atos命令还原Flutter栈信息</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">atos -arch arm64 -o ~&#x2F;Downloads&#x2F;Flutter.dSYM&#x2F;Contents&#x2F;Resources&#x2F;DWARF&#x2F;Flutter -l 0xxxxxxx</span><br></pre></td></tr></table></figure>]]></content>
     
