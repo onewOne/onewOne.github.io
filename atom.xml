@@ -6,7 +6,7 @@
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-18T07:33:09.791Z</updated>
+  <updated>2020-10-20T05:16:54.724Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Widget</title>
+    <link href="http://yoursite.com/2020/10/10/PrettyWidgets/"/>
+    <id>http://yoursite.com/2020/10/10/PrettyWidgets/</id>
+    <published>2020-10-10T05:50:27.000Z</published>
+    <updated>2020-10-20T05:16:54.724Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Pretty-Widgets"><a href="#Pretty-Widgets" class="headerlink" title="Pretty Widgets"></a>Pretty Widgets</h3><p>Pretty Widgets lets you add stylish widgets directly onto your home screen! Choose from premade widget designs, or better yet, make your own, Pretty Widgets is Perfect for customizing and styling your home screen.</p><p>HUNDREDS OF WIDGETS</p><p>There are hundreds of design options to make your best possible widget.</p><p>DESIGN YOUR OWN WIDGET</p><p>With Pretty Widgets, you can freely edit the widgets font, theme color, or even the background image.</p><p>EASY SETUP</p><p>Get your favorite widget up and running in seconds, Seriously!</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Pretty-Widgets&quot;&gt;&lt;a href=&quot;#Pretty-Widgets&quot; class=&quot;headerlink&quot; title=&quot;Pretty Widgets&quot;&gt;&lt;/a&gt;Pretty Widgets&lt;/h3&gt;&lt;p&gt;Pretty Widgets lets yo</summary>
+      
+    
+    
+    
+    <category term="Widgets" scheme="http://yoursite.com/categories/Widgets/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>深入浅出OC响应者链</title>
